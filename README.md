@@ -3,7 +3,7 @@
 Create ListView with Headings and Descriptions for rows like this:
 
 
-![Alt text](/demo.png "HeadingListView")
+![Alt text](/demo.png?raw=true "HeadingListView")
 
 
 ```
