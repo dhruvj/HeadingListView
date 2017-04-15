@@ -1,6 +1,7 @@
 package listview.tutorial.dhruvj.com.headinglistviewtutorial.RefreshListView;
 
 
+import android.preference.PreferenceActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -9,11 +10,13 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import javax.sql.RowSetListener;
+
 import listview.tutorial.dhruvj.com.headinglistviewtutorial.R;
 
-import static listview.tutorial.dhruvj.com.headinglistviewtutorial.RefreshListView.HeadingListData.TYPE;
 
-public class RowListData implements ListData {
+
+public class RowListData implements ListRow, HeaderListItem {
 
     private String rowData;
     private ArrayList<String> information;
@@ -40,16 +43,13 @@ public class RowListData implements ListData {
     }
 
 
-    public int getType() {
-        return TYPE;
-    }
 
 
     public String getData() {
         return rowData;
     }
 
-
+    @Override
     public View getView(LayoutInflater inflater) {
         View convertView = inflater.inflate(rowLayout, null);
         LinearLayout parentView = (LinearLayout)convertView.findViewById(R.id.service_layout);

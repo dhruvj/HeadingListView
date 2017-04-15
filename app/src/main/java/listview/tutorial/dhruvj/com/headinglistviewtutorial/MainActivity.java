@@ -11,8 +11,9 @@ import java.util.ArrayList;
 
 import listview.tutorial.dhruvj.com.headinglistviewtutorial.RefreshListView.HeaderListAdapter;
 import listview.tutorial.dhruvj.com.headinglistviewtutorial.RefreshListView.HeaderListAdapterData;
+import listview.tutorial.dhruvj.com.headinglistviewtutorial.RefreshListView.HeaderListItem;
 import listview.tutorial.dhruvj.com.headinglistviewtutorial.RefreshListView.HeadingListData;
-import listview.tutorial.dhruvj.com.headinglistviewtutorial.RefreshListView.ListData;
+import listview.tutorial.dhruvj.com.headinglistviewtutorial.RefreshListView.ListHeader;
 import listview.tutorial.dhruvj.com.headinglistviewtutorial.RefreshListView.RowListData;
 
 public class MainActivity extends AppCompatActivity {
@@ -66,11 +67,11 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ListData item = serviceListAdapterData.getItem(position);
-                if(item instanceof  HeadingListData) {
-                    Toast.makeText(MainActivity.this, "Clicked a heading: " + item.getData(), Toast.LENGTH_SHORT).show();
+                HeaderListItem item = serviceListAdapterData.getItem(position);
+                if(item instanceof ListHeader) {
+                    //do something
                 } else {
-                    Toast.makeText(MainActivity.this, "Clicked a Row: " + item.getData(), Toast.LENGTH_SHORT).show();
+                    //do something
                 }
             }
         });

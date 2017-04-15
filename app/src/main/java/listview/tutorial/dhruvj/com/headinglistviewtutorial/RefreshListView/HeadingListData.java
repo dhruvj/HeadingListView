@@ -10,14 +10,13 @@ import java.util.ArrayList;
 
 import listview.tutorial.dhruvj.com.headinglistviewtutorial.R;
 
-public class HeadingListData implements ListData {
+public class HeadingListData implements ListHeader, HeaderListItem {
 
-    public static final int TYPE = 0;
 
 
     private String headingData;
-    private ArrayList<RowListData> rowListData;
-    int headingLayout;
+    private ArrayList<ListRow> rowListData;
+    private int headingLayout;
 
     public HeadingListData(String _headingData, int _headingLayout) {
         headingData = _headingData;
@@ -25,17 +24,16 @@ public class HeadingListData implements ListData {
         headingLayout = _headingLayout;
     }
 
-    public void addRow(RowListData rowData) {
+    @Override
+    public void addRow(ListRow rowData) {
         rowListData.add(rowData);
     }
 
-    ArrayList<RowListData> getRows() {
+    public ArrayList<ListRow> getRows() {
         return rowListData;
     }
 
-    public int getType() {
-        return TYPE;
-    }
+
 
 
     public String getData() {
@@ -43,6 +41,7 @@ public class HeadingListData implements ListData {
     }
 
 
+    @Override
     public View getView(LayoutInflater inflater) {
         View convertView = inflater.inflate(headingLayout, null);
 

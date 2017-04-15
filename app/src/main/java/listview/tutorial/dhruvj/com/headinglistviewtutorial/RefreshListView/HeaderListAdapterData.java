@@ -5,21 +5,22 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.ListIterator;
 import java.util.Map;
 
 
 public class HeaderListAdapterData {
 
-    private ArrayList<HeadingListData> headings;
+    private ArrayList<ListHeader> headings;
 
     public HeaderListAdapterData() {
         headings = new ArrayList<>();
     }
 
-    public void addHeading(HeadingListData newHeading) {
-        for(HeadingListData heading: headings) {
+    public void addHeading(ListHeader newHeading) {
+        for(ListHeader heading: headings) {
             if(heading.equals(newHeading)) {
-                for(RowListData rowData: newHeading.getRows()) {
+                for(ListRow rowData: newHeading.getRows()) {
                     heading.addRow(rowData);
                 }
                 return;
@@ -28,14 +29,14 @@ public class HeaderListAdapterData {
         headings.add(newHeading);
     }
 
-    public ListData getItem(int position) {
+    public HeaderListItem getItem(int position) {
         ++position;
-        for (HeadingListData heading: headings) {
+        for (ListHeader heading: headings) {
             if (heading.getRows().size() + 1 < position) {
                 position = position - heading.getRows().size() - 1;
             } else {
-                if (position == 1) return heading;
-                return heading.getRows().get(position-2);
+                if (position == 1) return (HeaderListItem) heading;
+                return (HeaderListItem)heading.getRows().get(position-2);
             }
         }
         return null;
@@ -43,7 +44,7 @@ public class HeaderListAdapterData {
 
     public int getSize() {
         int size = 0;
-        for (HeadingListData heading: headings) {
+        for (ListHeader heading: headings) {
             size += heading.getRows().size() + 1;
         }
         return size;
