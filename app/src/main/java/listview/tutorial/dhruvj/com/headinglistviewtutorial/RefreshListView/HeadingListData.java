@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import listview.tutorial.dhruvj.com.headinglistviewtutorial.R;
 
@@ -16,12 +17,11 @@ public class HeadingListData implements ListHeader, HeaderListItem {
 
     private String headingData;
     private ArrayList<ListRow> rowListData;
-    private int headingLayout;
 
-    public HeadingListData(String _headingData, int _headingLayout) {
+
+    public HeadingListData(String _headingData) {
         headingData = _headingData;
         rowListData = new ArrayList<>();
-        headingLayout = _headingLayout;
     }
 
     @Override
@@ -29,7 +29,7 @@ public class HeadingListData implements ListHeader, HeaderListItem {
         rowListData.add(rowData);
     }
 
-    public ArrayList<ListRow> getRows() {
+    public List<ListRow> getRows() {
         return rowListData;
     }
 
@@ -43,7 +43,7 @@ public class HeadingListData implements ListHeader, HeaderListItem {
 
     @Override
     public View getView(LayoutInflater inflater) {
-        View convertView = inflater.inflate(headingLayout, null);
+        View convertView = inflater.inflate(R.layout.layout_heading, null);
 
         TextView dnsNameTV = (TextView)convertView.findViewById(R.id.dns_name);
         dnsNameTV.setText(getData());

@@ -34,10 +34,10 @@ public class MainActivity extends AppCompatActivity {
         final HeaderListAdapterData serviceListAdapterData = new HeaderListAdapterData();
 
         // Pizzas
-        HeadingListData pizzaHeading = new HeadingListData("Pizza", R.layout.layout_heading);
+        HeadingListData pizzaHeading = new HeadingListData("Pizza");
 
 
-        RowListData MarinaraPizza = new RowListData("MarinaraPizza", R.layout.layout_row);
+        RowListData MarinaraPizza = new RowListData("MarinaraPizza");
         ArrayList<String> info =  new ArrayList<>();
         info.add("Features tomatoes, garlic, oregano, and extra virgin olive oil.");
         MarinaraPizza.addInformation(info);
@@ -50,10 +50,10 @@ public class MainActivity extends AppCompatActivity {
 
         //Donuts
 
-        HeadingListData donutsHeading = new HeadingListData("Donuts", R.layout.layout_heading);
+        HeadingListData donutsHeading = new HeadingListData("Donuts");
 
 
-        RowListData TastyDonut = new RowListData("Lorem Ipsum Yum", R.layout.layout_row);
+        RowListData TastyDonut = new RowListData("Lorem Ipsum Yum");
         donutsHeading.addRow(TastyDonut);
         donutsHeading.addRow(TastyDonut);
         donutsHeading.addRow(TastyDonut);

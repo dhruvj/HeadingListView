@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.sql.RowSetListener;
 
@@ -20,25 +21,22 @@ public class RowListData implements ListRow, HeaderListItem {
 
     private String rowData;
     private ArrayList<String> information;
-    private int rowLayout;
 
-    public RowListData(String _rowData, int _rowLayout) {
+    public RowListData(String _rowData) {
         rowData = _rowData;
         information = new ArrayList<>();
-        rowLayout = _rowLayout;
     }
-    public RowListData(String _rowData, String _information, int _rowLayout) {
+    public RowListData(String _rowData, String _information) {
         rowData = _rowData;
         information = new ArrayList<>();
         information.add(_information);
-        rowLayout = _rowLayout;
     }
 
-    public void addInformation(ArrayList<String> info) {
+    public void addInformation(List<String> info) {
         information.addAll(info);
     }
 
-    public ArrayList<String> getInformation() {
+    public List<String> getInformation() {
         return information;
     }
 
@@ -51,13 +49,13 @@ public class RowListData implements ListRow, HeaderListItem {
 
     @Override
     public View getView(LayoutInflater inflater) {
-        View convertView = inflater.inflate(rowLayout, null);
+        View convertView = inflater.inflate(R.layout.layout_row, null);
         LinearLayout parentView = (LinearLayout)convertView.findViewById(R.id.service_layout);
 
         TextView serviceNameTV = (TextView)convertView.findViewById(R.id.service_name);
         serviceNameTV.setText(getData());
 
-        ArrayList<String> informations = getInformation();
+        List<String> informations = getInformation();
         if(informations != null) {
             for(String information: informations) {
                 RelativeLayout infoView = (RelativeLayout) inflater.inflate(R.layout.service_list_extra_information, parentView, false);

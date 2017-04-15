@@ -6,11 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public interface ListHeader {
 
-    ArrayList<ListRow> getRows();
+    List<ListRow> getRows();
 
 
     void addRow(ListRow rowData);
